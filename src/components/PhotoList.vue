@@ -1,6 +1,6 @@
 <template>
-  <div class="wrapper">
-    <div class="photos">
+  <div class="wrapper container" v-dragscroll="true">
+    <div class="photos" >
       <PhotoItem
         v-for="photo in photos"
         :key="photo.id"
@@ -13,8 +13,11 @@
 
 <script>
 import PhotoItem from './PhotoItem.vue';
-
+import { dragscroll } from 'vue-dragscroll'
 export default {
+  directives: {
+    dragscroll
+  },
   components: { PhotoItem },
   props: ['photos'],
 };
@@ -27,12 +30,12 @@ export default {
 }
 
 .photos {
-  column-count: 3;
+  column-count: 1;
 }
 
 @media screen and (min-width: 576px) {
   .photos {
-    column-count: 4;
+    column-count: 3;
   }
 }
 </style>

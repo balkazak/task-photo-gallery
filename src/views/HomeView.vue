@@ -31,7 +31,7 @@
 
   const result = await unsplash.search.getPhotos({
   query: searchText,
-  perPage: 20,
+  perPage: 8,
 });
 
   if (result.status === 200) {

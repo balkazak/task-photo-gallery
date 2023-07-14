@@ -2,6 +2,7 @@
   <div class="wrapper container" v-dragscroll="true">
     <div class="photos" >
       <PhotoItem
+        @click="goToSinglePage(photo)"
         v-for="photo in photos"
         :key="photo.id"
         :alt="photo.alt_description"
@@ -20,6 +21,11 @@ export default {
   },
   components: { PhotoItem },
   props: ['photos'],
+  methods: {
+    goToSinglePage(photo) {
+      this.$store.commit('setPhoto', { selectedPhoto: photo})
+    }
+  },
 };
 </script>
 
@@ -27,6 +33,7 @@ export default {
 .wrapper {
   height: 600px;
   overflow-y: auto;
+  padding-top: 114px;
 }
 
 .photos {

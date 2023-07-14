@@ -6,10 +6,10 @@
       </a>
       <div class="d-flex">
         <router-link to="/" style="text-decoration: none; color: inherit;">
-          <div class="text-white  me-3"><i class="bi bi-search me-2"></i>Поиск</div>
+          <div class="text-white  me-3"><i class="bi bi-search me-2"></i><span class="header-text">Поиск</span></div>
         </router-link>
         <router-link to="/favourites" style="text-decoration: none; color: inherit;">
-          <div class="text-white "><i class="bi bi-heart me-2"></i>Избранное</div>
+          <div class="text-white "><i class="bi bi-heart me-2"></i><span class="header-text">Избранное</span></div>
         </router-link>
       </div>
 
@@ -84,6 +84,21 @@ h1 {
 @media screen and (min-width: 576px) {
   .photos {
     column-count: 3;
+  }
+}
+@media screen and (max-width: 768px) {
+  .wrapper {
+    padding-top: 40px;
+  }
+  .header-text {
+    display: none;
+  }
+  .navbar i {
+    font-size: 30px;
+  }
+  h1 {
+    font-size: 30px;
+    margin-bottom: 40px;
   }
 }
 </style>

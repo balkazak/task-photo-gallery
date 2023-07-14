@@ -6,10 +6,10 @@
       </a>
       <div class="d-flex">
         <router-link to="/" style="text-decoration: none; color: inherit;">
-          <div class="text-white  me-3"><i class="bi bi-search me-2"></i>Поиск</div>
+          <div class="text-white  me-3"><i class="bi bi-search me-2"></i><span class="header-text">Поиск</span></div>
         </router-link>
         <router-link to="/favourites" style="text-decoration: none; color: inherit;">
-          <div class="text-white "><i class="bi bi-heart me-2"></i>Избранное</div>
+          <div class="text-white "><i class="bi bi-heart me-2"></i><span class="header-text">Избранное</span></div>
         </router-link>
       </div>
 
@@ -22,15 +22,22 @@
           <div class="image" :style="{ backgroundImage: 'url(' + this.$store.getters.getPhoto.user.profile_image.large + ')' }">
 
           </div>
-          <div class="text-white">
+          <div class="author--info">
             <h2 class="m-0">{{ this.$store.getters.getPhoto.user.name }}</h2>
             <h5>@{{ this.$store.getters.getPhoto.user.instagram_username }}</h5>
           </div>
         </div>
         <div class="tools">
-          <button v-if="isFavorite" @click="makeFavorite" type="button" class="btn btn-light btn-lg text-dark me-3"><i class="bi bi-heart-fill text-danger"></i></button>
-          <button v-else @click="makeFavorite" type="button" class="btn btn-light btn-lg text-dark me-3"><i class="bi bi-heart"></i></button>
-          <a target="_blank" :href="this.$store.getters.getPhoto.urls.raw" download="myimage" type="button" class="btn btn-warning btn-lg text-dark"><i class="bi bi-download me-2"></i>Download</a>
+          <button v-if="isFavorite" @click="makeFavorite" type="button" class="btn btn-light btn-lg text-dark me-3 like">
+            <i class="bi bi-heart-fill text-danger"></i>
+          </button>
+          <button v-else @click="makeFavorite" type="button" class="btn btn-light btn-lg text-dark me-3 like">
+            <i class="bi bi-heart"></i>
+          </button>
+          <a target="_blank" :href="this.$store.getters.getPhoto.urls.raw" download="myimage" type="button" class="btn btn-warning btn-lg text-dark">
+            <i class="bi bi-download me-md-2"></i>
+            <span class="download">Download</span>
+          </a>
         </div>
       </div>
       <img :src="this.$store.getters.getPhoto.urls.raw" alt="">
@@ -99,7 +106,28 @@ nav {
 .link {
   cursor: pointer;
 }
-@media (min-width: 1024px) {
-
+.author--info {
+  color: white;
+}
+@media screen and (max-width: 768px) {
+  .single-image {
+    padding: 43px;
+    background: none;
+  }
+  .author--info {
+    color: black;
+  }
+  .author--info h5 {
+    color: darkgrey;
+  }
+  .like {
+    border: 1px solid darkgrey;
+  }
+  .download, .header-text {
+    display: none;
+  }
+  .navbar i {
+    font-size: 30px;
+  }
 }
 </style>

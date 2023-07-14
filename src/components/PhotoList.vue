@@ -47,4 +47,10 @@ export default {
     column-count: 3;
   }
 }
+@media screen and (max-width: 768px) {
+  .wrapper {
+    padding-top: 40px;
+
+  }
+}
 </style>

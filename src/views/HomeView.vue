@@ -3,10 +3,10 @@
     <nav class="navbar navbar-light">
       <div class="container">
         <a class="navbar-brand">
-          <router-link to="/"><img src="../assets/logo.svg"></router-link>
+          <router-link to="/"><img src="../assets/logo.svg" class="img-fluid logo"></router-link>
         </a>
         <router-link to="/favourites" style="text-decoration: none; color: inherit;">
-          <div class="text-white link"><i class="bi bi-heart me-2"></i>Избранное</div>
+          <div class="text-white link"><i class="bi bi-heart me-2"></i><span class="fav-text">Избранное</span></div>
         </router-link>
 
       </div>
@@ -88,5 +88,16 @@ nav {
 }
 .link {
   cursor: pointer;
+}
+@media screen and (max-width: 768px) {
+  .logo {
+    max-width: 100px;
+  }
+  .fav-text {
+    display: none;
+  }
+  .navbar i {
+    font-size: 30px;
+  }
 }
 </style>

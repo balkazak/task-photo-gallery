@@ -1,4 +1,20 @@
 <template>
+  <nav class="navbar navbar-light">
+    <div class="container">
+      <a class="navbar-brand">
+        <router-link to="/"><img src="../assets/logo.svg"></router-link>
+      </a>
+      <div class="d-flex">
+        <router-link to="/" style="text-decoration: none; color: inherit;">
+          <div class="text-white  me-3"><i class="bi bi-search me-2"></i>Поиск</div>
+        </router-link>
+        <router-link to="/favourites" style="text-decoration: none; color: inherit;">
+          <div class="text-white "><i class="bi bi-heart me-2"></i>Избранное</div>
+        </router-link>
+      </div>
+
+    </div>
+  </nav>
   <div class="single-image">
     <div class="container">
       <div class="header">
@@ -24,7 +40,7 @@
 
 <script>
 export default {
-  name: 'About',
+  name: 'SinglePhoto',
   data() {
     return {
       isFavorite: false
@@ -74,6 +90,14 @@ img {
   max-height: 60vh;
   margin: 0 auto;
   display: block;
+}
+
+nav {
+  background: black;
+  padding: 37px 0;
+}
+.link {
+  cursor: pointer;
 }
 @media (min-width: 1024px) {
 

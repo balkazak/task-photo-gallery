@@ -1,11 +1,31 @@
 <template>
+  <nav class="navbar navbar-light">
+    <div class="container">
+      <a class="navbar-brand">
+        <router-link to="/"><img src="../assets/logo.svg"></router-link>
+      </a>
+      <div class="d-flex">
+        <router-link to="/" style="text-decoration: none; color: inherit;">
+          <div class="text-white  me-3"><i class="bi bi-search me-2"></i>Поиск</div>
+        </router-link>
+        <router-link to="/favourites" style="text-decoration: none; color: inherit;">
+          <div class="text-white "><i class="bi bi-heart me-2"></i>Избранное</div>
+        </router-link>
+      </div>
+
+    </div>
+  </nav>
   <div class="wrapper container" v-dragscroll="true">
-    <pre>{{this.$store.state}}</pre>
-    <div class="photos"  v-for="photo in getFavours">
-      <img
-          :key="photo.id"
-          :src="photo.url"
-      />
+    <h1 class="text-center">Избранное</h1>
+
+    <div class="photos" >
+      <div class="photo"  v-for="photo in getFavours">
+        <img
+            :key="photo.id"
+            :src="photo.url"
+        />
+      </div>
+
     </div>
   </div>
 </template>
@@ -40,7 +60,27 @@ export default {
 .photos {
   column-count: 1;
 }
+.photo {
+  margin-bottom: 5px;
+}
 
+img {
+  width: 100%;
+  border-radius: 5px;
+}
+nav {
+  background: black;
+  padding: 37px 0;
+}
+.link {
+  cursor: pointer;
+}
+h1 {
+  margin-bottom: 100px;
+  font-size: 50px;
+  font-weight: bold;
+  color: black;
+}
 @media screen and (min-width: 576px) {
   .photos {
     column-count: 3;

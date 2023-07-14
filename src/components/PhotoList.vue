@@ -23,9 +23,11 @@ export default {
   props: ['photos'],
   methods: {
     goToSinglePage(photo) {
-      this.$store.commit('setPhoto', { selectedPhoto: photo})
-    }
-  },
+      this.$store.commit('setPhoto', {selectedPhoto: photo})
+      this.$router.push({name: 'SinglePhoto'})
+
+    },
+  }
 };
 </script>
 

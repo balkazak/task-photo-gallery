@@ -10,7 +10,7 @@ defineProps({
       <a class="navbar-brand">
         <router-link to="/"><img src="../assets/logo.svg"></router-link>
       </a>
-      <router-link to="/about">
+      <router-link to="/favourites">
         <div class="text-white link"><i class="bi bi-heart me-2"></i>Избранное</div>
       </router-link>
 

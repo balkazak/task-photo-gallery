@@ -7,10 +7,6 @@ const store = createStore({
     favourites: []
   },
 
-  actions: {
-
-  },
-
   mutations: {
     setPhoto(state, { selectedPhoto }) {
       state.selectedPhoto = selectedPhoto

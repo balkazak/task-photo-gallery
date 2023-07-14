@@ -50,18 +50,22 @@ export default {
   name: 'SinglePhoto',
   data() {
     return {
-      isFavorite: false
     };
+  },
+  computed: {
+    isFavorite() {
+      if (this.$store.getters.getFavours.some(e => e.id === this.$store.getters.getPhoto.id)){
+        return true;
+      } else {
+        return false;
+      }
+    }
   },
   methods: {
     makeFavorite() {
       this.isFavorite = !this.isFavorite
       this.$store.commit('addToFav', { id: this.$store.getters.getPhoto.id, url: this.$store.getters.getPhoto.urls.raw})
-
     }
-  },
-  mounted() {
-
   }
 };
 </script>

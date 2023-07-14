@@ -31,6 +31,9 @@ const store = createStore({
     getPhoto(state) {
       return state.selectedPhoto
     },
+    getFavours(state) {
+      return state.favourites
+    },
   }
 
 })
